@@ -1,24 +1,28 @@
-   <app-header></app-header>
+<div *ngIf="!profile.name">
+  <ngx-loading-x [show]="load"></ngx-loading-x>
+</div>
 
-       <div class="page-content">
-         <div>
-          <app-profile></app-profile>
-   
-   <app-about></app-about>
+<div *ngIf="profile.name">
+  <app-header></app-header>
+    <div class="page-content">
+      <div>
+        <app-profile [profile]="profile"></app-profile>
 
-   <app-skill></app-skill>
+        <app-about [profile]="profile"></app-about>
 
-   <app-portfolio></app-portfolio>
-   
-   <app-experience></app-experience>
+        <app-skill></app-skill>
 
-   <app-education></app-education>
-   
-   <app-reference></app-reference>
+        <app-portfolio></app-portfolio>
+        
+        <app-experience></app-experience>
 
-   <app-contact></app-contact>
+        <app-education></app-education>
+        
+        <app-reference></app-reference>
 
-   </div>
-       </div>
+        <app-contact></app-contact>
 
-  <app-footer></app-footer>
+      </div>
+    </div>
+  <app-footer [profile]="profile"></app-footer>
+</div>

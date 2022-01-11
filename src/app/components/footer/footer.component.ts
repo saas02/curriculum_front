@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { profile } from './../../interfaces/profile';
 
-import { InformacionService } from './../../services/informacion.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -9,12 +10,13 @@ import { InformacionService } from './../../services/informacion.service';
 })
 export class FooterComponent implements OnInit {
 
-  profile:any = {};
+  @Input()
+  profile:profile;
   
   constructor( 
-    private InformacionService:InformacionService
+    
   ) { 
-    this.profile = this.InformacionService.profile
+    this.profile = {};
   }
 
   ngOnInit(): void {

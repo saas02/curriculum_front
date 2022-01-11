@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -14,6 +15,22 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { InformacionService } from './services/informacion.service';
+
+import { NgxLoadingXConfig, POSITION, SPINNER, NgxLoadingXModule } from 'ngx-loading-x';
+
+const ngxLoadingXConfig: NgxLoadingXConfig = {
+  show: false,
+  bgBlur: 2,
+  bgOpacity: 5,
+  bgLogoUrl: '',
+  bgLogoUrlPosition: POSITION.topLeft,
+  bgLogoUrlSize: 100,
+  spinnerType: SPINNER.threeStrings,
+  spinnerSize: 220,
+  spinnerColor: '#080807',
+  spinnerPosition: POSITION.centerCenter,
+}
+
 
 @NgModule({
   declarations: [
@@ -30,8 +47,10 @@ import { InformacionService } from './services/informacion.service';
     ProfileComponent
   ],
   imports: [
-    BrowserModule
-  ],
+    BrowserModule,
+    HttpClientModule,
+    NgxLoadingXModule.forRoot(ngxLoadingXConfig)
+  ],  
   providers: [
     InformacionService
   ],

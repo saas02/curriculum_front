@@ -1,10 +1,10 @@
 export interface profile{
-    name:string;
-    age:number;
+    name?:string;
+    age?:number;
     email?:string;
     phone?:number;
     imageProfile?:string;
-    profile: {
+    profile?: {
       name:string;
       timeExperience:number;
     }
