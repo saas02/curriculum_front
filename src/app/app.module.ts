@@ -27,7 +27,7 @@ const ngxLoadingXConfig: NgxLoadingXConfig = {
   bgLogoUrlSize: 100,
   spinnerType: SPINNER.threeStrings,
   spinnerSize: 220,
-  spinnerColor: '#080807',
+  spinnerColor: 'white',
   spinnerPosition: POSITION.centerCenter,
 }
 

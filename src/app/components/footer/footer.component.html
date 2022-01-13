@@ -1,7 +1,13 @@
 <footer class="footer">
-	<div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+	<div *ngIf="profile.items.socialNetworks" class="container text-center">		
+		<a *ngFor="let socialNetworks of profile.items.socialNetworks">			
+			<a *ngIf="socialNetworks.status" class="cc-{{ socialNetworks.name }} btn btn-link" href="{{ socialNetworks.url }}" target="_blank">
+				<i class="fa fa-{{ socialNetworks.name }} fa-2x " aria-hidden="true"></i>
+			</a>
+		</a>		
+	</div>
 	<div class="h4 title text-center"> {{ profile.name }} </div>
 	<div class="text-center text-muted">
-	 <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
+	 <p><a class="credit" href="{{ profile.url }}" target="_blank">&copy; Creative {{ profile.email }}. All rights reserved.</a></p>
 	</div>
 </footer>

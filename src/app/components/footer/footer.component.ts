@@ -2,11 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { profile } from './../../interfaces/profile';
 
 
-
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent implements OnInit {
 
@@ -16,7 +14,9 @@ export class FooterComponent implements OnInit {
   constructor( 
     
   ) { 
-    this.profile = {};
+    this.profile = {
+      items: {}
+    };
   }
 
   ngOnInit(): void {

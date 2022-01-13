@@ -3,22 +3,23 @@ import { HttpClient } from '@angular/common/http'
 
 import { map } from 'rxjs/operators';
 
+import jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 @Injectable()
 
 export class InformacionService {
-
-  endpoint:string = "http://localhost:8001/api/usuarioscv";
- 
   
+  endpointUrl:string = "http://localhost:8001"
+  endpoint:string = this.endpointUrl+"/api/usuarioscv";  
+  endpointPDF:string = this.endpointUrl+"/api/usuarioscv/doc/";
 
   constructor( private http: HttpClient ) {    
     
-  }  
+  }
 
-  getUser(){
-    
+  getUser(){    
     return this.http.get(this.endpoint);
-
   }
 
   getJsonData(usuarios:object){
@@ -28,6 +29,46 @@ export class InformacionService {
     
   }
 
-  
+  getOrderBySkills( data:any ){
+    
+    if(data.items.skills.length > 0){
+      data.items.skills.sort((a:any, b:any)=> {
+        if (a.percentage > b.percentage) return -1;
+        else if (a.percentage < b.percentage) return 1;
+        else return 0;      
+      })
+    }    
+
+    return data;
+  }
+
+  getOrderByExperiences( data:any ){
+    if(data.items.experiences.length > 0){
+      data.items.experiences.sort((a:any, b:any)=> {
+        if (a.start > b.end) return -1;
+        else if (a.start < b.end) return 1;
+        else return 0;      
+      })
+    }    
+
+    return data;
+  }
+
+  getOrderByEducations( data:any ){
+
+    if(data.items.educations.length > 0){
+      data.items.educations.sort((a:any, b:any)=> {
+        if (a.start > b.end) return -1;
+        else if (a.start < b.end) return 1;
+        else return 0;      
+      })
+    }    
+
+    return data;
+  }
+
+  exportAsPDF( id:string ){       
+    return this.http.put(this.endpointPDF+id, {} )
+  }
 
 }

@@ -1,26 +1,41 @@
 <div *ngIf="!profile.name">
-  <ngx-loading-x [show]="load"></ngx-loading-x>
+  <div class="profile-page">
+    <div class="wrapper">
+      <div class="page-header page-header-small" filter-color="green">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('assets/images/cc-bg-1.jpg')"></div>
+        <div class="container">
+          <ngx-loading-x [show]="load"></ngx-loading-x>
+        </div>
+        <div class="section">
+          <div class="container">
+            <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Facebook"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
 </div>
 
-<div *ngIf="profile.name">
-  <app-header></app-header>
-    <div class="page-content">
+<div *ngIf="profile.name" id="pdfTable" #pdfTable>  
+
+  <app-header [profile]="profile"></app-header>
+    <div class="page-content">      
       <div>
-        <app-profile [profile]="profile"></app-profile>
+        <app-profile *ngIf="profile.name" [profile]="profile"></app-profile>
 
-        <app-about [profile]="profile"></app-about>
+        <app-about *ngIf="profile.name" [profile]="profile"></app-about>
 
-        <app-skill></app-skill>
+        <app-skill *ngIf="profile.items.skills" [profile]="profile"></app-skill>
 
-        <app-portfolio></app-portfolio>
+        <app-portfolio *ngIf="profile.items.portafolios" [profile]="profile"></app-portfolio>
         
-        <app-experience></app-experience>
+        <app-experience *ngIf="profile.items.experiences" [profile]="profile"></app-experience>
 
-        <app-education></app-education>
+        <app-education *ngIf="profile.items.educations" [profile]="profile"></app-education>
         
         <app-reference></app-reference>
 
-        <app-contact></app-contact>
+        <app-contact *ngIf="profile.name" [profile]="profile"></app-contact>
 
       </div>
     </div>

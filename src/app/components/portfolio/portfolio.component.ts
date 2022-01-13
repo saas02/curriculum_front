@@ -1,13 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges  } from '@angular/core';
+import { profile } from './../../interfaces/profile';
 
 @Component({
   selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  profile:profile;
+  
+  constructor(
+    
+  ) {
+    this.profile = {
+      items: {
+        skills:{
+
+        }
+      }
+    };
+   }
 
   ngOnInit(): void {
   }

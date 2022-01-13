@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
+import { profile } from './../../interfaces/profile';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  profile:profile;
+
+  constructor() {
+    this.profile = {
+      items:{
+        
+      }
+    };
+   }
 
   ngOnInit(): void {
   }
