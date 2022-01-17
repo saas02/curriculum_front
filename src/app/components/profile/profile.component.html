@@ -10,9 +10,11 @@
               <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">
                 Hire Me
               </a>              
-              <button *ngIf="profile.uid" class="btn btn-primary" href="#" data-aos="zoom-in" (click)="exportAsPDF( profile.uid );" data-aos-anchor="data-aos-anchor">
+              <button *ngIf="profile.uid" class="btn btn-primary" href="#" data-aos="zoom-in" id="buttonFile" (click)="exportAsPDF( profile.uid );" data-aos-anchor="data-aos-anchor">
                 Download CV
-              </button>              
+              </button>
+              <i *ngIf="downloadfile" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+
           </div>
         </div>
         <div *ngIf="profile.items.socialNetworks" class="section">

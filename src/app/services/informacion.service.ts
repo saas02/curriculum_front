@@ -11,6 +11,7 @@ import html2canvas from 'html2canvas';
 export class InformacionService {
   
   endpointUrl:string = "https://pruebanodejs.amarreyamores.com.co"
+  //endpointUrl:string = "http://localhost:8001"
   endpoint:string = this.endpointUrl+"/api/usuarioscv";  
   endpointPDF:string = this.endpointUrl+"/api/usuarioscv/doc/";
 
