@@ -45,8 +45,8 @@ export class InformacionService {
   getOrderByExperiences( data:any ){
     if(data.items.experiences.length > 0){
       data.items.experiences.sort((a:any, b:any)=> {
-        if (a.start > b.end) return -1;
-        else if (a.start < b.end) return 1;
+        if (a.order < b.order) return -1;
+        else if (a.order > b.order) return 1;
         else return 0;      
       })
     }    
@@ -57,10 +57,10 @@ export class InformacionService {
   getOrderByEducations( data:any ){
 
     if(data.items.educations.length > 0){
-      data.items.educations.sort((a:any, b:any)=> {
-        if (a.start > b.end) return -1;
-        else if (a.start < b.end) return 1;
-        else return 0;      
+      data.items.educations.sort((a:any, b:any)=> {        
+        if (a.order < b.order) return -1;
+        else if (a.order > b.order) return 1;
+        else return 0;    
       })
     }    
 

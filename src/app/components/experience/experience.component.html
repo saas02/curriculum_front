@@ -5,15 +5,22 @@
       <div *ngFor="let experience of profile.items.experiences" class="card">
         <div class="row">
           <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body cc-experience-header">
-              <p>{{ experience.start | date: 'dd/MMM/yyyy' }} - {{ experience.end | date: 'dd/MMM/yyyy' }} </p>
-              <div class="h5"> {{ experience.company }} </div>
+            <div class="card-body cc-experience-header">              
+              <div class="h5"> {{ experience.company }} </div>              
+
+              <p *ngIf="experience.start">
+                {{ experience.start | date: 'MMMM/yyyy' }} - {{ experience.end| date: 'MMMM/yyyy' }}            
+              </p>
+              <p *ngIf="!experience.start">
+                {{ experience.end | date: 'MMMM/yyyy' }}            
+              </p>
+
             </div>
           </div>
           <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
             <div class="card-body">
               <div class="h5"> {{ experience.company }} </div>
-              <p>{{ experience.functions }}.</p>
+              <p [innerHtml]="experience.functions"></p>
             </div>
           </div>
         </div>

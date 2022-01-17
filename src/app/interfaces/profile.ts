@@ -1,5 +1,5 @@
 export interface profile{
-    _id?:string;
+    uid?:string;
     name?:string;
     age?:number;
     email?:string;
@@ -18,7 +18,8 @@ export interface profile{
       experiences?:any
       educations?:any,
       portafolios?:any,
-      socialNetworks?:any
+      socialNetworks?:any,
+      references?:any
     },    
     state?:boolean
   }

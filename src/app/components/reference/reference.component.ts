@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { profile } from './../../interfaces/profile';
 
 @Component({
   selector: 'app-reference',
@@ -6,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferenceComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  profile:profile; 
+
+  constructor() { 
+    this.profile = {
+      items: {
+        
+      }
+    };
+  }
 
   ngOnInit(): void {
   }

@@ -1,7 +1,7 @@
   <div class="profile-page">
     <div class="wrapper">
       <div class="page-header page-header-small" filter-color="green">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('assets/images/{{profile._id}}.jpg')"></div>
+        <div class="page-header-image" data-parallax="true" style="background-image: url('assets/images/{{profile.uid}}.jpg')"></div>
         <div class="container">
           <div class="content-center">
             <div class="cc-profile-image"><a href="#"><img src="{{ profile.imageProfile }}" alt="Image"/></a></div>
@@ -10,7 +10,7 @@
               <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">
                 Hire Me
               </a>              
-              <button *ngIf="profile._id" class="btn btn-primary" href="#" data-aos="zoom-in" (click)="exportAsPDF( profile._id );" data-aos-anchor="data-aos-anchor">
+              <button *ngIf="profile.uid" class="btn btn-primary" href="#" data-aos="zoom-in" (click)="exportAsPDF( profile.uid );" data-aos-anchor="data-aos-anchor">
                 Download CV
               </button>              
           </div>
