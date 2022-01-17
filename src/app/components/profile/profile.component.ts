@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
         let message = 'Download CV';
         if( data.url && !data.result.error ){
           window.open(this.InformacionService.endpointUrl+data.url, "_blank");
-        }else if( data.result.error ){
+        }else if( data.result && data.result.error ){
           message = 'Occurió un error \n Intente de nuevo';
         }
         this.downloadfile = false;        
