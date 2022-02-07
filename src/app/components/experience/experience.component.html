@@ -24,7 +24,9 @@
           <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
             <div class="card-body">
               <div class="h5"> {{ experience.company }} </div>
-              <p [innerHtml]="experience.functions"></p>
+              <div *ngFor="let functions of experience.functions">                
+                <p *ngIf="functions.code === language.language" [innerHtml]="functions.data"></p>
+              </div>                            
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ export interface profile{
     age?:number;
     email?:string;
     phone?:number;
-    aboutMe?:string;
+    about?:any;
     address?:string;
     language?:string;
     url?:string;

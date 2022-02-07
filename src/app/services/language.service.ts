@@ -1,16 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { language } from './../interfaces/languague';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LanguageService {
   
-  language:language;
+  lang:any;
+  @Input()
+  language:language;  
   constructor(private translateService: TranslateService) {
+    
+    this.lang = 'es';
+    if(sessionStorage.getItem('language') && sessionStorage.getItem('language') !== null){
+      this.lang = sessionStorage.getItem('language');
+    }    
+    
     this.language = {
-      language: 'es'
+      language: this.lang
     };
     this.setAppLanguague();
   }
@@ -20,7 +26,9 @@ export class LanguageService {
     this.translateService.use(this.language.language);
   }
 
-  toogleLanguage(lang: string) {
-    this.translateService.use(lang);
+  toogleLanguage(language: string) {
+    sessionStorage.setItem('language', language);
+    this.translateService.use(language);
+    location.reload();
   }
 }

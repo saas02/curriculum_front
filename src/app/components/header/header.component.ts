@@ -8,8 +8,8 @@ import { LanguageService } from './../../services/language.service';
   styleUrls: ['./header.styles.css']
 })
 
-export class HeaderComponent implements OnInit {
-  
+export class HeaderComponent implements OnInit {  
+
   languages = [
     {
       code: "es",
@@ -20,20 +20,24 @@ export class HeaderComponent implements OnInit {
       name: "english"
     }
   ]
+  language:string;  
   @Input()
-  profile:profile;    
-  
-  constructor(private languageService: LanguageService) {
+  profile:profile; 
+
+  constructor(private languageService: LanguageService) {    
     this.profile = {
       items: {}
     };
+    this.language =  languageService.language.language;
+  
   }
 
   ngOnInit(): void {
   }
 
-  changeLang(language:string){
-    this.languageService.toogleLanguage(language);    
+  changeLang(language:string){    
+    this.language = language;    
+    this.languageService.toogleLanguage(language);      
   }
 
 }
