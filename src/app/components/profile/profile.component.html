@@ -8,10 +8,10 @@
             <div class="h2 title"> {{ profile.name }} </div>                        
             <p *ngIf="profile.items.profile" class="category text-white">{{ profile.items.profile.name | uppercase }}</p>
               <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">
-                Hire Me
+                {{ "hire_me" | translate | uppercase }}
               </a>              
               <button *ngIf="profile.uid" class="btn btn-primary" href="#" data-aos="zoom-in" id="buttonFile" (click)="exportAsPDF( profile.uid );" data-aos-anchor="data-aos-anchor">
-                Download CV
+                {{ "download" | translate | uppercase }}
               </button>
               <i *ngIf="downloadfile" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
 

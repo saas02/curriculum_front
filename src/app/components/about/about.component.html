@@ -4,31 +4,31 @@
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <div class="card-body">
-              <div class="h4 mt-0 title">About</div>
+              <div class="h4 mt-0 title">{{ "about" | translate | titlecase }}</div>
               <p>{{ profile.aboutMe }}.</p>              
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="card-body">
-              <div class="h4 mt-0 title">Basic Information</div>
+              <div class="h4 mt-0 title">{{ "basic_information" | translate | titlecase }}</div>
               <div class="row">
-                <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
+                <div class="col-sm-4"><strong class="text-uppercase">{{ "age" | translate }}:</strong></div>
                 <div class="col-sm-8"> {{ profile.age }} </div>
               </div>
               <div class="row mt-3">
-                <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                <div class="col-sm-4"><strong class="text-uppercase">{{ "email" | translate }}:</strong></div>
                 <div class="col-sm-8"> {{ profile.email }} </div>
               </div>
               <div class="row mt-3">
-                <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+                <div class="col-sm-4"><strong class="text-uppercase">{{ "phone" | translate }}:</strong></div>
                 <div class="col-sm-8"> {{ profile.phone }} </div>
               </div>
               <div class="row mt-3">
-                <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
+                <div class="col-sm-4"><strong class="text-uppercase">{{ "address" | translate }}:</strong></div>
                 <div class="col-sm-8"> {{ profile.address }} </div>
               </div>
               <div class="row mt-3">
-                <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
+                <div class="col-sm-4"><strong class="text-uppercase">{{ "language" | translate }}:</strong></div>
                 <div class="col-sm-8"> {{ profile.language }} </div>
               </div>
             </div>

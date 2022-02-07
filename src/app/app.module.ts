@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +17,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { InformacionService } from './services/informacion.service';
+import { LanguageService } from './services/language.service';
 
 import { NgxLoadingXConfig, POSITION, SPINNER, NgxLoadingXModule } from 'ngx-loading-x';
 
@@ -29,6 +32,10 @@ const ngxLoadingXConfig: NgxLoadingXConfig = {
   spinnerSize: 220,
   spinnerColor: 'white',
   spinnerPosition: POSITION.centerCenter,
+}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
 }
 
 
@@ -49,10 +56,18 @@ const ngxLoadingXConfig: NgxLoadingXConfig = {
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxLoadingXModule.forRoot(ngxLoadingXConfig)
+    NgxLoadingXModule.forRoot(ngxLoadingXConfig),
+    TranslateModule.forRoot( {
+      loader:{
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [ HttpClient ]
+      }
+    })
   ],  
   providers: [
-    InformacionService
+    InformacionService,
+    LanguageService
   ],
   bootstrap: [AppComponent]
 })
