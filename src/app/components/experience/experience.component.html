@@ -23,7 +23,13 @@
           </div>
           <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
             <div class="card-body">
-              <div class="h5"> {{ experience.company }} </div>
+              <div class="h5">            
+                <div *ngFor="let positions of experience.position">
+                  <p *ngIf="positions.code === language.language">
+                    {{ experience.company }} ( {{ positions.data }} )
+                  </p>                
+                </div>
+              </div>  
               <div *ngFor="let functions of experience.functions">                
                 <p *ngIf="functions.code === language.language" [innerHtml]="functions.data"></p>
               </div>                            
