@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { profile } from './../../interfaces/profile';
-//import { language } from './../../interfaces/languague';
+import { language } from './../../interfaces/languague';
 import { LanguageService } from './../../services/language.service';
 
 @Component({
@@ -8,17 +8,17 @@ import { LanguageService } from './../../services/language.service';
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements OnInit  {
-  language:string
+  
   @Input()
   profile:profile;
-  //language:language;
+  language:language
   
   constructor( private languageService: LanguageService ) {    
     this.profile = {
       items: {}
     };
     
-    this.language =  languageService.language.language;
+    this.language =  languageService.language;
   }
 
   ngOnInit(): void {

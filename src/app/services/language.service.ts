@@ -29,6 +29,5 @@ export class LanguageService {
   toogleLanguage(language: string) {
     sessionStorage.setItem('language', language);
     this.translateService.use(language);
-    location.reload();
   }
 }

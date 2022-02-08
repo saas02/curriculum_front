@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { profile } from './../../interfaces/profile';
+import { language } from './../../interfaces/languague';
 import { InformacionService } from './../../services/informacion.service';
+import { LanguageService } from './../../services/language.service';
 
 @Component({
   selector: 'app-education',
@@ -9,10 +11,12 @@ import { InformacionService } from './../../services/informacion.service';
 export class EducationComponent implements OnInit {
 
   @Input()
-  profile:profile;
-  
+  profile:profile
+  language:language
+
   constructor(
-    private InformacionService:InformacionService
+    private InformacionService:InformacionService,
+    private languageService: LanguageService
   ) { 
     this.profile = {
       items: {
@@ -21,6 +25,7 @@ export class EducationComponent implements OnInit {
         }
       }
     };
+    this.language =  languageService.language;
   }
 
   ngOnInit(): void {

@@ -6,17 +6,28 @@
         <div class="card-body cc-education-header">
           <div class="h5">{{ education.institution | uppercase }}</div>
           <p *ngIf="education.start">
-              {{ education.start | date: 'MMMM/yyyy' }} - {{ education.end | date: 'MMMM/yyyy' }}            
+              {{ education.start | translate | date: 'MMMM' }} 
+              {{ education.start | date: 'yyyy' }} 
+              - 
+              {{ education.end | translate | date: 'MMMM' }}
+              {{ education.end | date: 'yyyy' }}
+
           </p>
           <p *ngIf="!education.start">
-            {{ education.end | date: 'MMMM/yyyy' }}            
+            {{ education.end | translate | date: 'MMMM' }}
+            {{ education.end | date: 'yyyy' }}      
           </p>
         </div>
       </div>
       <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
         <div class="card-body">
-          <div class="h5"> {{ education.title | uppercase }} </div>              
-          <p>{{ education.description }}.</p>
+          <div *ngFor="let titles of education.title">            
+            <div class="h5" *ngIf="titles.code === language.language"> {{ titles.data | uppercase }} </div>
+          </div>
+          
+          <div *ngFor="let descriptions of education.description">            
+            <p *ngIf="descriptions.code === language.language"> {{ descriptions.data | titlecase }} </p>
+          </div>          
         </div>
       </div>
     </div>

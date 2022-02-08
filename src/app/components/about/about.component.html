@@ -6,9 +6,9 @@
             <div class="card-body">
               <div class="h4 mt-0 title">{{ "about" | translate | titlecase }}</div>                            
               <div *ngFor="let about of profile.about.about">                
-                <p *ngIf="about.code === language">
+                <p *ngIf="about.code === language.language">
                   {{ about.data }}
-                </p>                
+                </p>
               </div>                        
             </div>
           </div>

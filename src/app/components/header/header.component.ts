@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { profile } from './../../interfaces/profile';
+import { language } from './../../interfaces/languague';
 import { LanguageService } from './../../services/language.service';
 
 @Component({
@@ -20,24 +21,24 @@ export class HeaderComponent implements OnInit {
       name: "english"
     }
   ]
-  language:string;  
+  
   @Input()
-  profile:profile; 
+  profile:profile;
+  language:language;
 
   constructor(private languageService: LanguageService) {    
     this.profile = {
       items: {}
     };
-    this.language =  languageService.language.language;
-  
+    this.language =  languageService.language;    
   }
 
   ngOnInit(): void {
   }
 
   changeLang(language:string){    
-    this.language = language;    
-    this.languageService.toogleLanguage(language);      
+    this.language.language = language;    
+    this.languageService.toogleLanguage(language);    
   }
 
 }
