@@ -4,8 +4,13 @@
       <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <div class="card-body">
           <div class="row">            
-            <div *ngFor="let skill of profile.items.skills" class="col-md-6">
-              <div class="progress-container progress-primary"><span class="progress-badge"> <b> {{ skill.name | uppercase }} </b> </span>
+            <div *ngFor="let skill of profile.items.skills" class="col-md-6">                            
+              <div class="progress-container progress-primary">
+                <span class="progress-badge"> 
+                  <b> 
+                    {{ skill.name | uppercase }} ( {{ differenceYears(skill.experience)}} {{ "years" | translate | titlecase }} )
+                  </b> 
+                </span>
                 <div class="progress">
                   <div class="progress-bar progress-bar-primary" 
                       data-aos="progress-full" 

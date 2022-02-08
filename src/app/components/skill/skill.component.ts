@@ -6,8 +6,7 @@ import { InformacionService } from './../../services/informacion.service';
   selector: 'app-skill',
   templateUrl: './skill.component.html'
 })
-export class SkillComponent implements OnInit {
-
+export class SkillComponent implements OnInit {  
   @Input()
   profile:profile;
 
@@ -20,8 +19,7 @@ export class SkillComponent implements OnInit {
 
         }
       }
-    };
-    
+    };    
   }
 
   ngOnInit(): void {
@@ -29,6 +27,12 @@ export class SkillComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {    
     this.profile = this.InformacionService.getOrderBySkills(this.profile);
+  }
+
+  differenceYears( data:number ){        
+    let currentDate = new Date().getFullYear();    
+    let years = Math.floor(currentDate - data);
+    return years;
   }
 
 }
