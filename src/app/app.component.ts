@@ -11,8 +11,9 @@ import { LanguageService } from './services/language.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  title = 'cvsergio';  
-  load = false;  
+  title = 'cvsergio'
+  load = false
+  scroll = false 
   @Input() 
   profile:profile;
   language:string;
@@ -38,6 +39,6 @@ export class AppComponent  {
         console.log(err);
       }
     );  
-  }  
+  }      
 
 }

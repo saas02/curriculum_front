@@ -15,6 +15,7 @@
     </div>
   </div>  
 </div>
+
 <div *ngIf="profile.name" id="pdfTable" #pdfTable>  
 
   <app-header [profile]="profile"></app-header>
@@ -35,7 +36,11 @@
         <app-reference></app-reference>
 
         <app-contact *ngIf="profile.name" [profile]="profile"></app-contact>
-
+        <button id="myBtn" *ngIf="scroll">
+          <a href="#top">
+              <img class="img-arrow" src="./assets/images/arrow.png">
+          </a>
+        </button>
       </div>
     </div>
   <app-footer [profile]="profile"></app-footer>

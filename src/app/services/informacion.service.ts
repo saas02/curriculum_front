@@ -10,8 +10,8 @@ import html2canvas from 'html2canvas';
 
 export class InformacionService {
   
-  endpointUrl:string = "https://pruebanodejs.amarreyamores.com.co"
-  //endpointUrl:string = "http://localhost:8001"
+  //endpointUrl:string = "https://pruebanodejs.amarreyamores.com.co"
+  endpointUrl:string = "http://localhost:8001"
   endpoint:string = this.endpointUrl+"/api/usuarioscv";  
   endpointPDF:string = this.endpointUrl+"/api/usuarioscv/doc/";
 
@@ -68,8 +68,10 @@ export class InformacionService {
     return data;
   }
 
-  exportAsPDF( id:string ){       
-    return this.http.put(this.endpointPDF+id, {} )
+  exportAsPDF( id:string, languague:string ){       
+    return this.http.put(this.endpointPDF+id, {
+      fileLanguage: languague
+    } )
   }
 
 }

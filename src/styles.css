@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+#myBtn {
+    position: fixed;
+    bottom: 10px;    
+    left: 95%;
+    max-width: 30px;
+    width: 100%;    
+    background-color: rgb(0 0 0 / 20%);
+    padding: .5px;
+    border-radius: 4px;
+    opacity: 0.5;
+
+}
+/*On Hover Color Change*/
+#myBtn:hover {
+    background-color: #7dbbf1;
+}
+
+.img-arrow{
+    width: 100%
+}
+
+@media screen and (max-width: 1036px) {
+    /*    mobile*/        
+    #myBtn {                    
+        max-width: 30px;
+    }    
+    
+}
