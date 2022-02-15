@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { profile } from './../../interfaces/profile';
 import { language } from './../../interfaces/languague';
 import { LanguageService } from './../../services/language.service';
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   
   @Input()
   profile:profile;
-  language:language;
+  language:language;  
 
   constructor(private languageService: LanguageService) {    
     this.profile = {

@@ -1,3 +1,4 @@
 export interface language{
-    language:string
+    language:string,
+    scrollUp:boolean
 }

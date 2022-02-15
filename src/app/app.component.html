@@ -2,7 +2,7 @@
   <div class="profile-page">
     <div class="wrapper">
       <div class="page-header page-header-small" filter-color="green">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('assets/images/cc-bg-1.jpg')"></div>
+        <div class="page-header-image" data-parallax="true" style="background-image: url('assets/images/default.jpg')"></div>
         <div class="container">
           <ngx-loading-x [show]="load"></ngx-loading-x>
         </div>
@@ -16,8 +16,7 @@
   </div>  
 </div>
 
-<div *ngIf="profile.name" id="pdfTable" #pdfTable>  
-
+<div *ngIf="profile.name" id="pdfTable" #pdfTable>    
   <app-header [profile]="profile"></app-header>
     <div class="page-content">      
       <div>
@@ -35,12 +34,16 @@
         
         <app-reference></app-reference>
 
-        <app-contact *ngIf="profile.name" [profile]="profile"></app-contact>
-        <button id="myBtn" *ngIf="scroll">
+        <app-contact *ngIf="profile.name" [profile]="profile"></app-contact>        
+        <a href="#top" *ngIf="language.scrollUp">
+          <div class="scroll-arrow"></div>
+          <div id="scroll-text">top</div>
+        </a>
+        <!-- <button id="myBtn" *ngIf="scrollButton">
           <a href="#top">
               <img class="img-arrow" src="./assets/images/arrow.png">
           </a>
-        </button>
+        </button> -->
       </div>
     </div>
   <app-footer [profile]="profile"></app-footer>

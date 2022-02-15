@@ -16,7 +16,8 @@ export class LanguageService {
     }    
     
     this.language = {
-      language: this.lang
+      language: this.lang,
+      scrollUp: false
     };
     this.setAppLanguague();
   }
@@ -24,10 +25,15 @@ export class LanguageService {
   setAppLanguague(){
     this.translateService.setDefaultLang(this.language.language);
     this.translateService.use(this.language.language);
+    this.language.scrollUp = false;
   }
 
   toogleLanguage(language: string) {
     sessionStorage.setItem('language', language);
     this.translateService.use(language);
+  }
+
+  changeScrollValue(type:boolean){
+    this.language.scrollUp = type
   }
 }
