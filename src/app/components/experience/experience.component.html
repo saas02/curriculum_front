@@ -6,16 +6,16 @@
         <div class="row">
           <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
             <div class="card-body cc-experience-header">              
-              <div class="h5"> {{ experience.company }} </div>
+              <div class="h5"> {{ experience.company }} </div>              
               <p *ngIf="experience.start">
-                {{ experience.start | translate | date: 'MMMM' }}
+                {{ experience.start | translate | date: 'MMM' }}
                 {{ experience.start | date: 'yyyy' }} 
                 - 
-                {{ experience.start | translate | date: 'MMMM' }}
+                {{ experience.end | translate | date: 'MMM' }}
                 {{ experience.end| date: 'yyyy' }}            
               </p>
               <p *ngIf="!experience.start">
-                {{ experience.end | date: 'MMMM/yyyy' }}            
+                {{ experience.end | date: 'MMM/yyyy' }}            
               </p>
             </div>
           </div>
